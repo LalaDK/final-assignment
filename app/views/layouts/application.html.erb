@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FinalAssignment</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<body>
+  <div id="top-menu">
+    <table>
+      <tbody>
+        <tr>
+          <td><%= link_to("Antal brugere", user_count_path, id: "btn_antal_brugere", class: "btn btn-primary") %></td>
+          <td><%= link_to("Top-10 refererende brugere", users_mentioning_most_users_path, id: "btn_top_10_referende_brugere", class: "btn btn-primary") %></td>
+          <td><%= link_to("Top-10 populære brugere", most_mentioned_users_path, id: "btn_top_ten_mentioned_users", class: "btn btn-primary") %></td>
+          <td><%= link_to("Top-10 aktive brugere", most_active_users_path, id: "btn_most_active_users", class: "btn btn-primary") %></td>
+          <td><%= link_to("Top-10 indlæg", top_ten_tweets_path, id: "btn_top_ten_tweets", class: "btn btn-primary") %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="main-content">
+    <%= yield %>
+  </div>
+</body>
+</html>

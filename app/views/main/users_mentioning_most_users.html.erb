@@ -1,0 +1,20 @@
+<div>
+  <h1>Top-10 brugere der oftest referer til andre brugere</h1>
+  <br><br>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Brugernavn</th>
+        <th>Antallet af nævnte brugere</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user['_id'] %></td>
+        <td><%= user['matches'] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

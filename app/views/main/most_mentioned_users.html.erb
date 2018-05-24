@@ -1,0 +1,20 @@
+<div>
+  <h1>Top-10 nævnte brugere</h1>
+  <br><br>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Brugernavn</th>
+        <th>Nævnt X antal gange</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @most_mentioned_users.each do |user| %>
+      <tr>
+        <td><%= user['_id'].gsub('@','') %></td>
+        <td><%= user['occurrences'] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

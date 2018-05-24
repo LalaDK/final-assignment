@@ -1,0 +1,46 @@
+<script>
+function show(id) {
+  $("#by_count, #by_length").addClass("hidden");
+  $('#' + id).removeClass("hidden");
+}
+</script>
+<button onclick="show('by_count');" type="button" class="btn btn-primary" id="btn_by_count">Antal tweets</button>
+<button onclick="show('by_length');" type="button" class="btn btn-primary" id="btn_by_length">Længste besked</button>
+<br><br>
+<div id="by_count" class="hidden">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Brugernavn</th>
+        <th>Antal tweets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @most_active_users_by_tweet_count.each do |user| %>
+      <tr>
+        <td><%= user['_id'] %></td>
+        <td><%= user['tweets'] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="by_length" class="hidden">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Brugernavn</th>
+        <th>Antal tegn i længste besked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @most_active_users_by_longest_tweet.each do |user| %>
+      <tr>
+        <td><%= user['_id'] %></td>
+        <td><%= user['length'] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

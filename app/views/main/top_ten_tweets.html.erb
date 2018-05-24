@@ -1,0 +1,53 @@
+<script>
+function show(id) {
+  $("#positive, #negative").addClass("hidden");
+  $('#' + id).removeClass("hidden");
+}
+</script>
+
+<button id="btn_positive" onclick="show('positive');" type="button" class="btn btn-success">Top-10 positive</button>
+<button id="btn_negative" onclick="show('negative');" type="button" class="btn btn-danger">Top-10 negative</button>
+<br><br>
+<div id="positive" class="hidden">
+  <h3>Top-10 positive</h3>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Brugernavn</th>
+        <th>Polaritet</th>
+        <th>Tweet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @most_positive_tweets.each do |user| %>
+      <tr>
+        <td><%= user['_id'] %></td>
+        <td><%= user['polarity'] %></td>
+        <td><%= user['tweet'] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="negative" class="hidden">
+  <h3>Top-10 negative</h3>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Brugernavn</th>
+        <th>Polaritet</th>
+        <th>Tweet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @most_negative_tweets.each do |user| %>
+      <tr>
+        <td><%= user['_id'] %></td>
+        <td><%= user['polarity'] %></td>
+        <td><%= user['tweet'] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
