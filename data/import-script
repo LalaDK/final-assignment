@@ -1,0 +1,1 @@
+mongoimport --mode upsert --db=final_assignment_development --columnsHaveTypes --fields "polarity.int32(),id.int64(),date.string(),query.string(),user.string(),text.string()" --file training.1600000.processed.noemoticon.csv --type=csv --collection=tweets
